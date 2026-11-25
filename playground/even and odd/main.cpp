@@ -4,7 +4,7 @@ int main()
 {
     int w = 2;
     int player;
-    std::cout << "Wellcome To the Big Math\n";
+    std::cout << "Welcome To the Big Math\n";
     std::cout << "Enter your number: ";
     std::cin >> player;
     if (player % w == 0)
