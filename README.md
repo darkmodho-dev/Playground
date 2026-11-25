@@ -1,87 +1,48 @@
-# C++ Playground
+# Playground
 
-A clean, beginner-friendly C++17 collection of reusable programming exercises and console utilities.
+A personal C++ learning space. Each exercise has its own folder so you can write, compile, and upload your own solution without starter implementations getting in the way.
 
-## Features
+## Exercise folders
 
-- Prime number checker and generator
-- Even and odd number lists
-- Fibonacci sequence generator
-- Factorial calculator
-- Number and string palindrome checker
-- Decimal to binary, octal, and hexadecimal conversion
-- Random number generator
-- Basic arithmetic calculator
-- Input validation and menu-based console interface
-- Reusable exercise functions separated from the application entry point
+All practice work goes under [`playground/`](playground/):
 
-## Technologies
+- `prime-number-checker/`
+- `prime-numbers-generator/`
+- `even-numbers/`
+- `odd-numbers/`
+- `fibonacci-sequence/`
+- `factorial-calculator/`
+- `palindrome-checker/`
+- `number-converter/`
+- `random-number-generator/`
+- `basic-calculator/`
 
-- C++17
-- CMake 3.16+
-- Standard C++ Library
-- CTest
+Each folder contains a short README. Add your own `.cpp` file there, for example `playground/prime-number-checker/main.cpp`. You can add a separate header if your solution needs one.
 
-## Project Structure
+## Compile an exercise
 
-```text
-.
-├── CMakeLists.txt
-├── README.md
-├── LICENSE
-├── assets/
-├── docs/
-├── exercises/
-├── include/playground/
-├── src/
-└── tests/
-```
-
-## Requirements
-
-- A C++17-compatible compiler
-- CMake 3.16 or newer
-
-## Build and Run
+With a C++17 compiler installed, compile a single exercise from the repository root. For example:
 
 ```bash
-cmake -S . -B build
-cmake --build build
-./build/playground
+g++ -std=c++17 -Wall -Wextra -pedantic playground/prime-number-checker/main.cpp -o prime-checker
+./prime-checker
 ```
 
-On Windows, run `build\playground.exe` or open the Visual Studio solution from CMake.
+On Windows, the output executable may be named `prime-checker.exe`.
 
-## Run Tests
+## Suggested workflow
 
-```bash
-cmake -S . -B build -DBUILD_TESTING=ON
-cmake --build build
-ctest --test-dir build --output-on-failure
-```
+1. Choose an exercise folder.
+2. Create your own `.cpp` file in that folder.
+3. Build and test it.
+4. Commit and push your work when you are ready.
 
-## Adding an Exercise
+No exercise solutions are included—the goal is for you to practice and write them yourself. The `docs/` folder has notes about possible future Qt 6 and OpenCV additions.
 
-1. Declare reusable functions in `include/playground/exercises.hpp`.
-2. Implement them in `src/exercises.cpp` or a dedicated source file.
-3. Add menu logic to `src/main.cpp`.
-4. Add unit tests to `tests/exercises_test.cpp`.
+## Future ideas
 
-The exercise API is kept independent of console input and output, making functions easy to reuse in future interfaces.
+- Add more independent C++ exercises and algorithms.
+- Optionally add a Qt 6 interface in a separate application folder.
+- Explore OpenCV in a separate image-processing module for loading/saving images, grayscale conversion, resizing, edge detection, and computer vision experiments.
 
-## Roadmap
-
-- [ ] Add more algorithms and data structures
-- [ ] Add individual source modules for each exercise
-- [ ] Expand test coverage
-- [ ] Add benchmark examples
-- [ ] Create a Qt 6 graphical interface
-- [ ] Add OpenCV image loading and saving
-- [ ] Add grayscale conversion, resizing, and edge detection
-- [ ] Add basic computer vision experiments
-
-## Future Qt and OpenCV Architecture
-
-The project is organized as a small reusable library with a separate console application. Future work can retain `playground_lib` for algorithms and add GUI or image-processing targets without mixing business logic into UI code.
-
-Qt 6 may replace or complement the console interface. OpenCV integration may add optional image modules while keeping the core C++ exercises independent of third-party libraries.
+The future Qt and OpenCV work is not implemented yet; keep those dependencies optional so simple exercises remain easy to build.
